@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="/uploadVideo"
+      enctype="multipart/form-data"
+      method="post" class="col-md-4" id="videoForm">
+    {% csrf_token %}
+    <input type="file" name="video" id="video" accept="video/*"
+           placeholder="Upload your video" required>
+
+    <button type="button" onclick="submitForm();">
+        Upload Video
+    </button>
+</form>
+
+
+</body>
+
+<script>
+    function submitForm() {
+        var nme = document.getElementById("video");
+        if (nme.value.length < 4) {
+            alert('No Video Uploaded !');
+            return false;
+        }
+        document.getElementById("videoForm").submit();
+    }
+</script>
+</html>
